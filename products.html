@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-522L896L');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - FurniStore</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-522L896L');</script>
+    <!-- End Google Tag Manager -->
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; }
@@ -27,9 +27,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-522L896L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-522L896L"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <header>
         <nav>
@@ -63,43 +63,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <main class="main-content">
             <h2>All Products</h2>
             <div class="product-grid">
-                <div class="product-card">
+                <!-- Data for each product card -->
+                <div class="product-card" data-item-id="SKU_001" data-item-name="Elegant Coffee Table" data-item-price="199.99">
                     <img src="images/table-coffee-elegant.jpg" alt="Elegant Coffee Table">
                     <h3>Elegant Coffee Table</h3>
                     <p>$199.99</p>
                     <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-item-id="SKU_002" data-item-name="King Size Bed" data-item-price="999.99">
                     <img src="images/bed-king-size.jpg" alt="King Size Bed">
                     <h3>King Size Bed</h3>
                     <p>$999.99</p>
                     <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-item-id="SKU_003" data-item-name="Leather Armchair" data-item-price="349.99">
                     <img src="images/armchair-leather.jpg" alt="Leather Armchair">
                     <h3>Leather Armchair</h3>
                     <p>$349.99</p>
                     <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
                 </div>
-                 <div class="product-card">
+                 <div class="product-card" data-item-id="SKU_004" data-item-name="Modern Sofa" data-item-price="799.99">
                     <img src="images/sofa-modern.jpg" alt="Modern Sofa">
                     <h3>Modern Sofa</h3>
                     <p>$799.99</p>
                     <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-item-id="SKU_005" data-item-name="Oak Dining Table" data-item-price="499.99">
                     <img src="images/table-oak-dining.jpg" alt="Oak Dining Table">
                     <h3>Oak Dining Table</h3>
                     <p>$499.99</p>
                     <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-item-id="SKU_006" data-item-name="Comfortable Armchair" data-item-price="249.99">
                     <img src="images/armchair-comfortable.jpg" alt="Comfortable Armchair">
                     <h3>Comfortable Armchair</h3>
                     <p>$249.99</p>
                     <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
                 </div>
-                </div>
+            </div>
         </main>
     </div>
 
@@ -107,5 +108,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>&copy; 2025 FurniStore. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // 1. Track 'view_item_list' when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = [];
+            document.querySelectorAll('.product-card').forEach((card, index) => {
+                items.push({
+                    item_id: card.dataset.itemId,
+                    item_name: card.dataset.itemName,
+                    price: parseFloat(card.dataset.itemPrice),
+                    item_list_name: 'All Products',
+                    index: index + 1
+                });
+            });
+
+            window.dataLayer.push({
+                'event': 'view_item_list', // GA4 standard event
+                'ecommerce': {
+                    'item_list_name': 'All Products',
+                    'items': items
+                }
+            });
+        });
+    </script>
 </body>
 </html>
