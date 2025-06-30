@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-522L896L');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurniStore - Your Online Furniture Destination</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-522L896L');</script>
+    <!-- End Google Tag Manager -->
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
@@ -23,14 +23,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .product-card { background-color: #fff; border: 1px solid #ddd; padding: 20px; text-align: center; }
         .product-card img { max-width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; }
-        footer { background-color: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+        footer { background-color: #333; color: #fff; text-align: center; padding: 20px 40px; margin-top: 40px; }
+        .newsletter-form { margin-top: 20px; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .newsletter-form input { padding: 10px; border-radius: 5px; border: none; }
+        .newsletter-form button { padding: 10px 20px; border-radius: 5px; border: none; background-color: #555; color: #fff; cursor: pointer; }
     </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-522L896L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-522L896L"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <header>
         <div class="container">
@@ -53,7 +56,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <section class="hero">
             <h1>Find Your Dream Furniture</h1>
             <p>High-Quality Furniture for Every Home</p>
-            <a href="products.html" style="background-color: #333; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Shop Now</a>
+            <a href="products.html" id="shop-now-btn" style="background-color: #333; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Shop Now</a>
         </section>
 
         <section class="featured-products container">
@@ -83,7 +86,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <footer>
         <p>&copy; 2025 FurniStore. All Rights Reserved.</p>
+        <form class="newsletter-form" id="newsletter-form">
+            <input type="email" name="email" placeholder="Enter your email for our newsletter" required>
+            <button type="submit">Subscribe</button>
+        </form>
     </footer>
+    
+    <script>
+      // Push event data to the dataLayer for GTM to process.
 
+      // 1. Track 'click' on the main "Shop Now" button
+      document.getElementById('shop-now-btn').addEventListener('click', function() {
+        window.dataLayer.push({
+          'event': 'click_event', // Custom event name for GTM Trigger
+          'event_category': 'engagement',
+          'event_label': 'Shop Now Hero'
+        });
+      });
+
+      // 2. Track 'generate_lead' on newsletter signup
+      document.getElementById('newsletter-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent actual form submission for this example
+        const email = event.target.email.value;
+        if(email) {
+          window.dataLayer.push({
+            'event': 'generate_lead', // GA4 standard event name
+            'event_category': 'engagement',
+            'event_label': 'Newsletter Subscription',
+            'value': 1 
+          });
+          alert('Thank you for subscribing!'); // User feedback
+          event.target.reset();
+        }
+      });
+    </script>
 </body>
 </html>
