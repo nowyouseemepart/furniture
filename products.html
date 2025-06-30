@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - FurniStore</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; display: flex; }
+        header { background-color: #fff; padding: 20px; border-bottom: 1px solid #ddd; }
+        nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        nav a { text-decoration: none; color: #333; margin: 0 15px; font-weight: bold; }
+        .sidebar { width: 250px; padding-right: 20px; }
+        .main-content { flex-grow: 1; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .product-card { background-color: #fff; border: 1px solid #ddd; padding: 20px; text-align: center; }
+        .product-card img { max-width: 100%; height: auto; }
+        footer { background-color: #333; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">FurniStore</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="checkout.html">Cart</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>Filter By</h3>
+            <hr>
+            <h4>Category</h4>
+            <ul>
+                <li><a href="#">Sofas</a></li>
+                <li><a href="#">Tables</a></li>
+                <li><a href="#">Chairs</a></li>
+                <li><a href="#">Beds</a></li>
+            </ul>
+            <h4>Price</h4>
+            <input type="range" min="100" max="2000" style="width: 100%;">
+        </aside>
+        <main class="main-content">
+            <h2>All Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150" alt="Product Name">
+                    <h3>Elegant Coffee Table</h3>
+                    <p>$199.99</p>
+                    <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150" alt="Product Name">
+                    <h3>King Size Bed</h3>
+                    <p>$999.99</p>
+                    <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150" alt="Product Name">
+                    <h3>Leather Armchair</h3>
+                    <p>$349.99</p>
+                    <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
+                </div>
+                 <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150" alt="Product Name">
+                    <h3>Modern Sofa</h3>
+                    <p>$799.99</p>
+                    <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150" alt="Product Name">
+                    <h3>Oak Dining Table</h3>
+                    <p>$499.99</p>
+                    <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200x150" alt="Product Name">
+                    <h3>Comfortable Armchair</h3>
+                    <p>$249.99</p>
+                    <a href="product-detail.html" style="color: #333; text-decoration: underline;">View Details</a>
+                </div>
+                </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 FurniStore. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
